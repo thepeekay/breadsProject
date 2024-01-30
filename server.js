@@ -1,6 +1,7 @@
 //Dependencies
 const express = require('express')
 const methodOverride= require(`method-override`);
+const mongoose = require(`mongoose`)
 
 //Configuration
 require(`dotenv`).config()
@@ -33,3 +34,5 @@ app.use(`/breads`, breadsController)
 app.listen(PORT, ()=>{
     console.log(`listening on port`, PORT);
 })
+console.log(process.env.MONGO_URI)
+mongoose.createConnection(process.env.MONGO_URI).asPromise(console.log(`connected to mongo: `, process.env.MONGO_URI))
