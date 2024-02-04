@@ -32,7 +32,3 @@ module.exports = [
   ]
 
 
-  baker.get('/data/seed', (req, res) => {
-    Baker.insertMany(bakerSeedData)
-        .then(res.redirect('/breads'))
-})
