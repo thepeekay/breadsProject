@@ -17,7 +17,7 @@ module.exports = [
     {
       name: 'Phoebe',
       startDate: '1996-09-19',
-      bio: 'Fierce protector of the bakery's smelly cat.'
+      bio: `Fierce protector of the bakery's smelly cat.`
     },
     {
       name: 'Chandler',
@@ -30,3 +30,9 @@ module.exports = [
       bio: 'Is NOT a shoe. Occasionally a fan of lobsters.'
     },
   ]
+
+
+  baker.get('/data/seed', (req, res) => {
+    Baker.insertMany(bakerSeedData)
+        .then(res.redirect('/breads'))
+})
